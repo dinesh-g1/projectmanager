@@ -6,14 +6,19 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import com.gdinesh.taskmanager.persistence.model.Project;
 import com.gdinesh.taskmanager.repository.IProjectRepository;
 
 @Repository
+@Profile("prod")
 public class ProjectRepositoryImpl2 implements IProjectRepository{
+    public ProjectRepositoryImpl2() {
+        super();
+    }
+
     List<Project> projects = new ArrayList<>();
     HashSet<Integer> set = new HashSet<>();
     

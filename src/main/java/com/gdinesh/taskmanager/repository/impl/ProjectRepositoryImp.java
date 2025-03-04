@@ -7,13 +7,20 @@ import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import com.gdinesh.taskmanager.persistence.model.Project;
 import com.gdinesh.taskmanager.repository.IProjectRepository;
 
 @Repository
+@Profile("dev")
 public class ProjectRepositoryImp implements IProjectRepository{
+
+    public ProjectRepositoryImp() {
+        super();
+    }
+    
     List<Project> projects = new ArrayList<>();
     HashSet<Integer> set = new HashSet<>();
     
