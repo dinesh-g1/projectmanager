@@ -1,16 +1,17 @@
 package com.gdinesh.taskmanager.persistence.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Project {
     private Long id;
     private String name;
-    private LocalDateTime createdAt;
+    private LocalDate createdAt;
+    private String internalId;
 
-    public Project(Long id, String name, LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public Project(Long id, String name, LocalDate createdAt) {
         this.id = id;
         this.name = name;
+        this.createdAt = createdAt;
     }
 
     public Long getId() {
@@ -25,14 +26,21 @@ public class Project {
     public void setName(String name) {
         this.name = name;
     }
-    public LocalDateTime getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 
+    public String getInternalId() {
+        return internalId;
+    }
 
+    public void setInternalId(String internalId) {
+        this.internalId = internalId;
+    }
+    
     @Override
     public int hashCode() {
         final int prime = 31;
