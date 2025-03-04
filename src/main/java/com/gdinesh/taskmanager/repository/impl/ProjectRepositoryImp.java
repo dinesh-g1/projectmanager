@@ -1,15 +1,21 @@
 package com.gdinesh.taskmanager.repository.impl;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
 import com.gdinesh.taskmanager.persistence.model.Project;
 import com.gdinesh.taskmanager.repository.IProjectRepository;
 
-public class ProjectRepositoryImpl implements IProjectRepository{
+@Repository
+public class ProjectRepositoryImp implements IProjectRepository{
     List<Project> projects = new ArrayList<>();
+    HashSet<Integer> set = new HashSet<>();
     
     @Override
     public Optional<Project> findById(Long id) {
