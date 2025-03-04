@@ -16,7 +16,7 @@ import com.gdinesh.taskmanager.service.IProjectService;
 public class ProjectServiceImpl implements IProjectService {
     private static final Logger LOG = LoggerFactory.getLogger(ProjectServiceImpl.class);
 
-    IProjectRepository projectRepo;
+    private IProjectRepository projectRepo;
 
     @Override
     public Optional<Project> findById(Long id) {
