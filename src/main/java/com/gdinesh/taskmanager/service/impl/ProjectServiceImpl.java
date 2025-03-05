@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.gdinesh.taskmanager.persistence.model.Project;
@@ -31,7 +30,6 @@ public class ProjectServiceImpl implements IProjectService {
     }
     
     @Autowired
-    @Qualifier("projectRepositoryImp")
     public void setProjectRepo(IProjectRepository projectRepo) {
     	this.projectRepo = projectRepo;
     }

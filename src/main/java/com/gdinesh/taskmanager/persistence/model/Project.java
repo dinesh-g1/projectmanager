@@ -2,12 +2,18 @@ package com.gdinesh.taskmanager.persistence.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Project {
+    @Id
     private Long id;
     private String name;
     private LocalDate createdAt;
     private String internalId;
-
+    
+    public Project(){}
     public Project(Long id, String name, LocalDate createdAt) {
         this.id = id;
         this.name = name;
