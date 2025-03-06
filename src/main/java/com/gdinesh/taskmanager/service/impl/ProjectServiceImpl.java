@@ -22,10 +22,9 @@ public class ProjectServiceImpl implements IProjectService {
         LOG.debug("Found project by Id >> {} ", id);
         return projectRepo.findById(id);
     }
-
+    
     @Override
     public Project save(Project project) {
-        LOG.debug("Saving Project >> {} ", project);
         return projectRepo.save(project);
     }
     
@@ -33,5 +32,6 @@ public class ProjectServiceImpl implements IProjectService {
     public void setProjectRepo(IProjectRepository projectRepo) {
     	this.projectRepo = projectRepo;
     }
+
 
 }
