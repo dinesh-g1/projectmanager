@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.gdinesh.taskmanager.persistence.model.Project;
+import com.gdinesh.taskmanager.persistence.model.ProjectDto;
 import com.gdinesh.taskmanager.service.IProjectService;
 
 @RestController
@@ -22,12 +23,21 @@ public class ProjectController {
     }
 
     @GetMapping(value="/{id}")
-    public Project findOne(@PathVariable Long id) {
-        return projectService.findById(id)
+    public ProjectDto findOne(@PathVariable Long id) {
+        Project p = projectService.findById(id)
         .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return convertToProjectDto(p);
     }
     @PostMapping
-    public void create(@RequestBody Project project) {
-        projectService.save(project);
+    public void create(@RequestBody ProjectDto projectDto) {
+        projectService.save(convertToProject(projectDto));
+    }
+
+    private Project convertToProject(ProjectDto projectDto) {
+        return new Project(projectDto.getId(), projectDto.getName(), projectDto.getCreatedAt());
+    }
+
+    private ProjectDto convertToProjectDto(Project project) {
+        return new ProjectDto(project.getId(), project.getName(), project.getCreatedAt());
     }
 }
